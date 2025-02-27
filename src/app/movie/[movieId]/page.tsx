@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Movie } from "@/types";
 import Link from "next/link";
+import Head from "next/head";
 
 export async function generateStaticParams() {
   const res = await fetch(`${process.env.BACKEND_URL}/movies`);
@@ -14,20 +15,20 @@ export async function generateStaticParams() {
 
 type Params = Promise<{ movieId?: string }>;
 
-export async function generateMetadata({ params }: { params: Params }) {
-  const newParams = await params;
-  const res = await fetch(
-    `${process.env.BACKEND_URL}/movies/${newParams.movieId}`
-  );
-  if (!res.ok) {
-    console.log("Movie not found");
-  }
-  const newMovie: { data: Movie } = await res.json();
-  console.log( "title", `${newMovie.data.attributes.title}`)
-  return {
-    title: `${newMovie.data.attributes.title}`,
-  };
-}
+// export async function generateMetadata({ params }: { params: Params }) {
+//   const newParams = await params;
+//   const res = await fetch(
+//     `${process.env.BACKEND_URL}/movies/${newParams.movieId}`
+//   );
+//   if (!res.ok) {
+//     console.log("Movie not found");
+//   }
+//   const newMovie: { data: Movie } = await res.json();
+//   console.log( "title", `${newMovie.data.attributes.title}`)
+//   return {
+//     title: `${newMovie.data.attributes.title}`,
+//   };
+// }
 
 const SingleMoviePage = async ({ params }: { params: Params }) => {
   const newParams = await params;
@@ -47,6 +48,9 @@ const SingleMoviePage = async ({ params }: { params: Params }) => {
 
   return (
     <div className="container mx-auto lg:w-2/3 ">
+      <Head>
+        <title>{newMovie.data.attributes.title}</title>
+      </Head>
       <div className="flex flex-col-reverse md:grid md:grid-cols-3 gap-10 px-5 py-10">
         <div className="col-span-2 pr-16 text-primary-950">
           <h2 className="text-5xl font-bold leading-[1.1]">
