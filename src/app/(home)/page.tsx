@@ -1,21 +1,21 @@
 
 import Banner from "@/app/(home)/components/Banner";
-import BookList from "./components/BookList";
+import MovieList from "./components/MovieList";
 
 export default async function Home() {
 
-  const response = await fetch(`${process.env.BACKEND_URL}/books`);
+  const response = await fetch(`${process.env.BACKEND_URL}/movies`);
   if(!response.ok){
     throw new Error('An error occured while fetching the books');
   }
 
-  const books = await response.json();
+  const movies = await response.json();
   // console.log('books', books);
 
   return (
     <>
       <Banner />
-      <BookList books={books} />
+      <MovieList movies={movies} />
     </>
   );
 }

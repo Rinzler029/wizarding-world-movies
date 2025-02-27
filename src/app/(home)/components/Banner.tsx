@@ -6,25 +6,16 @@ const Banner = () => {
     <div className="mx-auto container p-10">
             <div className="relative">
                 <Image
-                    src={'/paper-bg.jpg'}
+                    src={'/GreatHall.jpg'}
                     alt="billboard"
                     className="h-72 w-full rounded-lg"
                     height={0}
                     width={0}
                     sizes="100vw"
                 />
-                <div className="absolute inset-0 h-full w-full rounded-lg bg-gray-950 opacity-30" />
-                <Image
-                    src={'/book.png'}
-                    alt="billboard"
-                    className="absolute bottom-0 right-5"
-                    height={0}
-                    width={0}
-                    sizes="100vw"
-                    style={{ width: 'auto', height: '18rem' }}
-                />
-                <h3 className="absolute left-10 top-1/2 w-full max-w-3xl -translate-y-1/2 text-5xl font-semibold tracking-tight text-white">
-                    Connect, Share and Trade Your Favourite Reads...
+                {/* <div className="absolute inset-0 h-full w-full rounded-lg bg-gray-950 opacity-30" /> */}
+                <h3 className="absolute left-5 md:left-10 top-1/2 w-auto max-w-3xl -translate-y-1/2 text-3xl md:text-5xl md:w-full font-semibold tracking-tight text-white ">
+                    Welcome to the wizarding world of Harry Potter
                 </h3>
             </div>
         </div>

@@ -1,8 +1,14 @@
-export type Book = {
-    id: number;
+export type Movie = {
+    id: string;
+    attributes: Attributes;
+}
+
+export type Attributes = {
     title: string;
-    author: string;
-    publication_year: number;
-    description: string;
-    cover_image: string;
+    running_time: string;
+    release_date: string;
+    summary: string;
+    poster: string;
+    rating: string;
+    trailer: string;
 }

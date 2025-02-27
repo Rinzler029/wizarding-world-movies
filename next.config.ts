@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname : 'fakeimg.pl',
+        hostname : 'www.wizardingworld.com',
       },
     ]
   }
