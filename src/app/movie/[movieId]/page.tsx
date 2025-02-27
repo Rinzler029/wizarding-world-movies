@@ -23,9 +23,10 @@ export async function generateMetadata({ params }: { params: Params }) {
     console.log("Movie not found");
   }
   const newMovie: { data: Movie } = await res.json();
+  console.log( "title", `${newMovie.data.attributes.title}`)
   return {
     title: `${newMovie.data.attributes.title}`,
-  }
+  };
 }
 
 const SingleMoviePage = async ({ params }: { params: Params }) => {
