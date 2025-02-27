@@ -1,6 +1,7 @@
 
 import Banner from "@/app/(home)/components/Banner";
 import MovieList from "./components/MovieList";
+import Head from "next/head";
 
 export default async function Home() {
 
@@ -14,6 +15,10 @@ export default async function Home() {
 
   return (
     <>
+     <Head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      </Head>
       <Banner />
       <MovieList movies={movies} />
     </>
