@@ -15,20 +15,20 @@ export async function generateStaticParams() {
 
 type Params = Promise<{ movieId?: string }>;
 
-// export async function generateMetadata({ params }: { params: Params }) {
-//   const newParams = await params;
-//   const res = await fetch(
-//     `${process.env.BACKEND_URL}/movies/${newParams.movieId}`
-//   );
-//   if (!res.ok) {
-//     console.log("Movie not found");
-//   }
-//   const newMovie: { data: Movie } = await res.json();
-//   console.log( "title", `${newMovie.data.attributes.title}`)
-//   return {
-//     title: `${newMovie.data.attributes.title}`,
-//   };
-// }
+export async function generateMetadata({ params }: { params: Params }) {
+  const newParams = await params;
+  const res = await fetch(
+    `${process.env.BACKEND_URL}/movies/${newParams.movieId}`
+  );
+  if (!res.ok) {
+    console.log("Movie not found");
+  }
+  const newMovie: { data: Movie } = await res.json();
+  console.log( "title", `${newMovie.data.attributes.title}`)
+  return {
+    title: `${newMovie.data.attributes.title}`,
+  };
+}
 
 const SingleMoviePage = async ({ params }: { params: Params }) => {
   const newParams = await params;

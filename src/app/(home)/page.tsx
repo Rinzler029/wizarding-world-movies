@@ -15,9 +15,8 @@ export default async function Home() {
 
   return (
     <>
-     <Head>
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      <Head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
       <Banner />
       <MovieList movies={movies} />
