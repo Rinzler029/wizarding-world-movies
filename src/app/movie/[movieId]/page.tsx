@@ -80,6 +80,7 @@ const SingleMoviePage = async ({ params }: { params: Params }) => {
             className="rounded-md border"
             width={300}
             height={450}
+            priority
           />
         </div>
       </div>
